@@ -15,7 +15,7 @@ X = 0
 Y = 1
 
 
-class ButterflyDraw:
+class ButterflyImg:
     angle = math.pi / 3
     xw_angle = -math.pi / 12 * 4
     point1 = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
@@ -29,7 +29,7 @@ class ButterflyDraw:
         self.purple = []
         self.blue = []
 
-    def init_FlowerDraw(self, center, radius):
+    def init_ButterflyImg(self, center, radius):
         self.center = center
         self.radius = radius
 
@@ -69,7 +69,7 @@ class ButterflyDraw:
             canvas.create_image(x1, y1, image=self.blue[i] if color_flag == BLUE else self.purple[i])
 
 
-def update_gui_from_queue(root, canvas, butterfly_draw: ButterflyDraw, last_data):
+def update_gui_from_queue(root, canvas, butterfly_draw: ButterflyImg, last_data):
     try:
         # 非阻塞地从队列中获取数据
         data = data_queue.get_nowait()
@@ -112,9 +112,9 @@ def draw_overlay():
 
     # 设置花瓣的中心点和半径
     center = (size_base * screenheight / 2, size_base * screenheight / 2)
-    radius = size_base * screenheight / 6
-    butterfly_draw = ButterflyDraw()
-    butterfly_draw.init_FlowerDraw(center, radius)
+    radius = size_base * screenheight / 7
+    butterfly_draw = ButterflyImg()
+    butterfly_draw.init_ButterflyImg(center, radius)
 
     # 设置窗口的默认位置
     x = int(screenwidth * 0.55)  # 设置窗口左上角的X坐标为屏幕宽度的55%

@@ -1858,13 +1858,13 @@ class TestHUD(HUD):
 from dataqueue import data_queue
 
 # from flowerdraw import draw_overlay as flowerdraw_overlay
-from butterflydraw import draw_overlay as butterflydraw_overlay
+from butterflyimg import draw_overlay as butterflyimg_overlay
 
 
 def injected_main():
     print(f'i am in pid={os.getpid()}')
     TestHUD.reload()
-    t = threading.Thread(target=butterflydraw_overlay, daemon=True)
+    t = threading.Thread(target=butterflyimg_overlay, daemon=True)
     t.start()
 
     print('HUD loaded')
